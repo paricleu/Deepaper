@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "369469219371",
+    "firebase_url": "https://deepaper-7c17a.firebaseio.com",
+    "project_id": "deepaper-7c17a",
+    "storage_bucket": "deepaper-7c17a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369469219371:android:cdd1cb3a3bd72c14",
+        "android_client_info": {
+          "package_name": "com.hackathon.deepaper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369469219371-vbakvpt8t12terogho5tmcdgo6e0665v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hackathon.deepaper",
+            "certificate_hash": "515446dc31dcd184349876cf158db502cf9d0fe5"
+          }
+        },
+        {
+          "client_id": "369469219371-3bkk10aipcbldv8uoh4tpqa68a7dobhk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjV5iaCaNoNtuEhgq1AUwP6wqlKp4AZPc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "369469219371-3bkk10aipcbldv8uoh4tpqa68a7dobhk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

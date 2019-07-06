@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/permissionFragment">
+
+    <fragment
+        android:id="@+id/permissionFragment"
+        android:name="com.hackathon.deepaper.PermissionFragment"
+        android:label="PermissionFragment" />
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.hackathon.deepaper.MainFragment"
+        android:label="MainFragment" />
+
+    <fragment
+        android:id="@+id/cameraFragment"
+        android:name="com.hackathon.deepaper.camera.CameraFragment"
+        android:label="CameraFragment" />
+
+    <fragment
+        android:id="@+id/imagePreviewFragment"
+        android:name="com.hackathon.deepaper.camera.ImagePreviewFragment"
+        android:label="ImagePreviewFragment" />
+
+    <fragment
+        android:id="@+id/scanFragment"
+        android:name="com.hackathon.deepaper.ScanFragment"
+        android:label="ScanFragment" />
+</navigation>

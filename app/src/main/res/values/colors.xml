@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="white">#FFF</color>
+    <color name="black">#000</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="colorGreen">#00FF00</color>
+    <color name="colorDarkGreen">#228B22</color>
+    <color name="colorRed">#ff0000</color>
+    <color name="colorDarkRed">#990000</color>
+
+
+    <color name="color_chat_box_receiver">#FF6E00</color>
+    <color name="color_chat_box_sender">#00FF00</color>
+
+    <color name="black_50">#50000000</color>
+    <color name="offwhite">#ddd</color>
+</resources>
