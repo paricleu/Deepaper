@@ -9,6 +9,7 @@ import com.hackathon.deepaper.Constants
 import com.hackathon.deepaper.R
 import com.hackathon.deepaper.model.Message
 import com.hackathon.deepaper.model.User
+import com.hackathon.deepaper.show
 import kotlinx.android.synthetic.main.activity_content.*
 import java.util.*
 
@@ -33,6 +34,7 @@ class ContentActivity : AppCompatActivity() {
         if (intent.hasExtra(CONTENT_KEY)) {
             val content = intent.getStringExtra(CONTENT_KEY)
             if (content == "video") {
+                videoView.show()
                 val uri = "android.resource://" + packageName + "/" + R.raw.karneval
 
                 videoView.setVideoPath(uri)

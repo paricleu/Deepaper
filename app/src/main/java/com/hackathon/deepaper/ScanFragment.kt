@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.google.android.material.snackbar.Snackbar
 import com.hackathon.deepaper.content.ContentActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -39,11 +40,15 @@ class ScanFragment : Fragment() {
         mDisposable = barcodeView
             .getObservable()
             .observeOn(AndroidSchedulers.mainThread())
-            .firstOrError()
             .subscribe(
                 { barcode ->
-                    context!!.launchActivity<ContentActivity> {
-                        putExtra(ContentActivity.CONTENT_KEY, barcode.displayValue)
+                    if (barcode.displayValue == "video") {
+                        context!!.launchActivity<ContentActivity> {
+                            putExtra(ContentActivity.CONTENT_KEY, barcode.displayValue)
+                        }
+                    } else {
+                        Snackbar.make(requireView(), "Code nicht erkannt", Snackbar.LENGTH_SHORT)
+                            .show()
                     }
                 },
                 { throwable ->
