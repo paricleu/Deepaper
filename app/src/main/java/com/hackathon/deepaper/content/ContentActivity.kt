@@ -31,6 +31,10 @@ class ContentActivity : AppCompatActivity() {
             }
         })
 
+        itemRv.layoutManager = LinearLayoutManager(this)
+        val user1 = User(1, "Simone Lammbach", "")
+        val user2 = User(1, "Thorsten Macher", "")
+
         if (intent.hasExtra(CONTENT_KEY)) {
             val content = intent.getStringExtra(CONTENT_KEY)
             if (content == "video") {
@@ -39,34 +43,51 @@ class ContentActivity : AppCompatActivity() {
 
                 videoView.setVideoPath(uri)
                 videoView.start()
+
+                itemRv.adapter = MessageAdapter(
+                    listOf(
+                        Message("Tolles Video! Das Karneval war super!!!!!", user1, "11.10"),
+                        Message(
+                            "Ich war leider nicht da, an dem Wochenende war Hackathon :(",
+                            user2,
+                            "13:37"
+                        ),
+                        Message("Läuft bei euch!!!!", Constants.ME, "18:01"),
+                        Message("Ich hab noch ein schönes Video gemacht!", user1, "12:14")
+                    )
+                )
             } else if (content == "text") {
                 soundView.show()
-                Handler().postDelayed({
-                    mTTS.speak(
-                        getString(R.string.newspaper_text),
-                        TextToSpeech.QUEUE_FLUSH,
-                        null,
-                        "random"
+                Handler().postDelayed(
+                    {
+                        mTTS.speak(
+                            getString(R.string.newspaper_text),
+                            TextToSpeech.QUEUE_FLUSH,
+                            null,
+                            "random"
+                        )
+                    },
+                    500
+                )
+
+                infoText.text = "Mathias Korfmann über das Ruhrgebiet"
+                itemRv.adapter = MessageAdapter(
+                    listOf(
+                        Message(
+                            "Mein blinder Großvater kann jetzt endliche wieder Zeitung 'lesen' :) ",
+                            user1,
+                            "7.05 Uhr"
+                        ),
+                        Message(
+                            "Ich liebe das Ruhrgebiet!!! ❤︎❤︎❤︎❤︎❤︎❤︎",
+                            user2,
+                            "11:56"
+                        ),
+                        Message("Toller Artikel!!!! MALOCHER!", Constants.ME, "18:01")
                     )
-                }, 500)
+                )
             }
         }
-
-        itemRv.layoutManager = LinearLayoutManager(this)
-        val user1 = User(1, "Simone Lammbach", "")
-        val user2 = User(1, "Thorsten Macher", "")
-        itemRv.adapter = MessageAdapter(
-            listOf(
-                Message("Tolles Video! Das Karneval war super!!!!!", user1, "11.10"),
-                Message(
-                    "Ich war leider nicht da, an dem Wochenende war Hackathon :(",
-                    user2,
-                    "13:37"
-                ),
-                Message("Läuft bei euch!!!!", Constants.ME, "18:01"),
-                Message("Ich hab noch ein schönes Video gemacht!", user1, "12:14")
-            )
-        )
     }
 
     override fun onBackPressed() {

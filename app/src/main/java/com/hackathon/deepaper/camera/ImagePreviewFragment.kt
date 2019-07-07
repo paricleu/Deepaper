@@ -63,12 +63,6 @@ class ImagePreviewFragment : Fragment() {
                     }
                 } else {
                     Snackbar.make(requireView(), "Keine Dateien hinterlegt.", Snackbar.LENGTH_LONG)
-                        .addCallback(object : Snackbar.Callback() {
-                            override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
-                                Navigation.findNavController(requireActivity(), R.id.mainContent)
-                                    .popBackStack()
-                            }
-                        })
                         .show()
                 }
             }
