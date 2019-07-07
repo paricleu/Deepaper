@@ -40,6 +40,7 @@ class ContentActivity : AppCompatActivity() {
                 videoView.setVideoPath(uri)
                 videoView.start()
             } else if (content == "text") {
+                soundView.show()
                 Handler().postDelayed({
                     mTTS.speak(
                         getString(R.string.newspaper_text),
@@ -50,8 +51,6 @@ class ContentActivity : AppCompatActivity() {
                 }, 500)
             }
         }
-
-
 
         itemRv.layoutManager = LinearLayoutManager(this)
         val user1 = User(1, "Simone Lammbach", "")
@@ -64,7 +63,8 @@ class ContentActivity : AppCompatActivity() {
                     user2,
                     "13:37"
                 ),
-                Message("Läuft bei euch!!!!", Constants.ME, "18:01")
+                Message("Läuft bei euch!!!!", Constants.ME, "18:01"),
+                Message("Ich hab noch ein schönes Video gemacht!", user1, "12:14")
             )
         )
     }

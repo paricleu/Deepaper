@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hackathon.deepaper.Constants
 import com.hackathon.deepaper.R
 import com.hackathon.deepaper.model.Message
+import com.hackathon.deepaper.show
 import kotlinx.android.synthetic.main.item_message_received.view.*
 import kotlinx.android.synthetic.main.item_message_sent.view.text_message_body
 
@@ -68,6 +69,10 @@ class MessageAdapter(
             text_message_body.text = message.msg
             text_message_name.text = message.sender.nickname
             text_message_time.text = message.createdAt
+
+            if (message.msg.contains("schönes Video")) {
+                image_msg.show()
+            }
 
 //            // Insert the profile image from the URL into the ImageView.
 //            Utils.displayRoundImageFromUrl(

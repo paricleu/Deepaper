@@ -15,8 +15,8 @@
     <color name="colorDarkRed">#990000</color>
 
 
-    <color name="color_chat_box_receiver">#FF6E00</color>
-    <color name="color_chat_box_sender">#00FF00</color>
+    <color name="color_chat_box_receiver">@color/gold</color>
+    <color name="color_chat_box_sender">@color/blue</color>
 
     <color name="black_50">#50000000</color>
     <color name="offwhite">#ddd</color>
