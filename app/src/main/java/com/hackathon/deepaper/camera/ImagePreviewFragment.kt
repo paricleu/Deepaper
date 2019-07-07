@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.common.FirebaseVisionImage
 import com.google.firebase.ml.vision.text.FirebaseVisionText
@@ -49,10 +50,26 @@ class ImagePreviewFragment : Fragment() {
         textRecognizer.processImage(image)
             .addOnSuccessListener {
                 val resultText = recognizedTextAsBlocks(it)
-                if (resultText.contains("Ruhrgebiet ", true) || resultText.contains("Verschwinden der Industrie ", true)) {
+                if (resultText.contains(
+                        "Ruhrgebiet ",
+                        true
+                    ) || resultText.contains(
+                        "Verschwinden der Industrie ",
+                        true
+                    )
+                ) {
                     context!!.launchActivity<ContentActivity> {
                         putExtra(ContentActivity.CONTENT_KEY, "text")
                     }
+                } else {
+                    Snackbar.make(requireView(), "Keine Dateien hinterlegt.", Snackbar.LENGTH_LONG)
+                        .addCallback(object : Snackbar.Callback() {
+                            override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
+                                Navigation.findNavController(requireActivity(), R.id.mainContent)
+                                    .popBackStack()
+                            }
+                        })
+                        .show()
                 }
             }
             .addOnFailureListener {

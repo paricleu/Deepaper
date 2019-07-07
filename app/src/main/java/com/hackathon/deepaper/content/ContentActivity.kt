@@ -45,7 +45,7 @@ class ContentActivity : AppCompatActivity() {
                         null,
                         "random"
                     )
-                }, 1000)
+                }, 500)
             }
         }
 
@@ -67,9 +67,13 @@ class ContentActivity : AppCompatActivity() {
         )
     }
 
-    override fun onStop() {
-        super.onStop()
-
+    override fun onBackPressed() {
         mTTS.stop()
+        super.onBackPressed()
+    }
+
+    override fun onStop() {
+        mTTS.stop()
+        super.onStop()
     }
 }
